@@ -11,7 +11,7 @@ app.use(
     })
 )
 app.use(cookieParser())
-
+//cors is used to connect backend website with frontend
 app.use(cors({
     origin:process.env.FRONTEND_URL,
     credentials:true,
@@ -29,8 +29,10 @@ app.use("/api/v1",User)
 app.use("/api/v1",payment)
 app.use("/api/v1",other)
 
+app.get("/",(req,res)=>res.send(`<h1>server is working! Click <a href=${process.env.FRONTEND_URL}=>here</a>to visit frontend</h1>`))
+
 app.use(ErrorMiddleware)
 export default app;
 
-app.get("/",(req,res)=>res.send(`<h1>server is working! Click <a href=${process.env.FRONTEND_URL}=>here</a>to visit frontend</h1>`))
+
 
