@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
 import jwt from "jsonwebtoken"
-import bcrypt from "bcrypt"
+import bcryptjs from "bcryptjs"
 import crypto from "crypto"
  
 const schema=new mongoose.Schema({
@@ -59,7 +59,7 @@ resetPasswordExpire:String,
 
 schema.pre("save",async function(next){
     if(!this.isModified("password")) return next();
-  const hashedPassword=  await bcrypt.hash(this.password,10)//10 are rounds,more rounds good is password security
+  const hashedPassword=  await bcryptjs.hash(this.password,10)//10 are rounds,more rounds good is password security
   this.password=hashedPassword;
   next();
 })
@@ -70,7 +70,7 @@ schema.methods.getJWTToken=function(){
 
     schema.methods.comparePassword=async function(password){
      
-       return await bcrypt.compare(password,this.password);
+       return await bcryptjs.compare(password,this.password);
    
 }
 
