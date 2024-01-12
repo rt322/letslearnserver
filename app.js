@@ -29,7 +29,7 @@ app.use("/api/v1",User)
 app.use("/api/v1",payment)
 app.use("/api/v1",other)
 
-app.get("/",(req,res)=>res.send(`<h1>server is working! Click <a href=${process.env.FRONTEND_URL}=>here</a>to visit frontend</h1>`))
+app.get("/",(req,res)=>res.send(`<h1>server is working! Click <a href=${process.env.FRONTEND_URL}>here</a>to visit frontend</h1>`))
 
 app.use(ErrorMiddleware)
 export default app;
