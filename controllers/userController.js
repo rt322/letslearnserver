@@ -180,7 +180,7 @@ await user.save();
 
         user.playlist.push({
             course:course._id,
-            poster:course.poster._url,
+            poster:course.poster.url,
         })
 
         await user.save();
