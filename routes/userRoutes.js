@@ -19,7 +19,7 @@ router.route("/removefromplaylist").delete(isAuthenticated,removefromPlaylist);
 //Admin routes
 router.route("/admin/users").get(isAuthenticated,authorizeAdmin,getallusers);
 
-router.route("/admin/user/:id").put(isAuthenticated,authorizeAdmin,updaterole);
+router.route("/user/:id").put(isAuthenticated,updaterole);
 
 router.route("/admin/user/:id").delete(isAuthenticated,authorizeAdmin,deleteuser);
 
